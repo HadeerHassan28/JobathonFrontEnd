@@ -10,21 +10,17 @@ const Home = () => {
           <h2 className="title h2 mx-5">
             <strong>List of Tasks</strong>
           </h2>
+          <Link to="add">
+            <button className="btn  btn-pirmery ">Add </button>
+          </Link>
         </div>
-        <div>
+        <div className="row bg-main">
           {TasksInfo.map((ele) => {
-            <div className="card" style="width: 18rem; key={ele.id}">
-              <div className="card-body">
-                <h5 className="card-title">{ele.name}</h5>
-
-                <p className="card-text">{ele.description}</p>
-                <Link to="" className="card-link">
-                  Edite
-                </Link>
-                <Link to="" className="card-link">
-                  Delate
-                </Link>
-              </div>
+            <div className="col-md-6 ">
+              <h2>{ele.name}</h2>
+              <span>{ele.description}</span>
+              <button className="btn  btn-pirmery ">Edite</button>
+              <button className="btn  btn-pirmery ">Delate</button>
             </div>;
           })}
         </div>

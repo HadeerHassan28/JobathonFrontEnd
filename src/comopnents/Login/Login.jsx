@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 const LogIn = () => {
   const navigete = useNavigate();
-  const [setError, setsetError] = useState(null);
+  const [setError, setsetError] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const formik = useFormik({
