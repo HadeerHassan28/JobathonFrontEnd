@@ -38,7 +38,6 @@ const AddTask = () => {
         status: values.status,
       };
       setItems([...items, newT]);
-      console.log(items);
       toast.success("Successfully created!", { duration: "2000" });
       navigate("/");
     },
