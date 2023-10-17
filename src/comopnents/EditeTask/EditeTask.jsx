@@ -1,22 +1,16 @@
 import React, { useState } from "react";
-import styles from "./AddTask.module.css";
+import styles from "./EditeTask.module.css";
 
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
-import uuid from "react-uuid";
+
 import { TasksInfo } from "../TaskInfo/TaskInfo";
-const AddTask = () => {
-  const newT = {
-    id: uuid(),
-    name: "",
-    description: "",
-    status: "",
-  };
+
+const EditeTask = () => {
   const [setError, setsetError] = useState(false);
   const [items, setItems] = useState(TasksInfo);
-  const [newTask, setNewTask] = useState(newT);
   const navigate = useNavigate();
 
   const formik = useFormik({
@@ -32,17 +26,12 @@ const AddTask = () => {
       description: Yup.string()
         .min(6, "Description must be at least 6 characters")
         .required("Description is Required!"),
-      status: Yup.string()
-        .min(6, "Description must be at least 6 characters")
-        .required("Description is Required!"),
+      status: Yup.string().min(3, "The status").required("Status is Required!"),
     }),
-    onSubmit: async (values) => {
-      newTask.name = values.name;
-      newTask.description = values.description;
-      newTask.status = values.status;
-
-      setItems([...items, newTask]);
-      setNewTask("");
+    onSubmit: async () => {
+      const updatedTasks = TasksInfo.map((t) =>
+        t.id === updatedTask.id ? updatedTask : t
+      );
       toast.success("Successfully created!", { duration: "2000" });
       navigate("/");
     },
@@ -52,7 +41,7 @@ const AddTask = () => {
       <div className="contanier mt-2">
         <div className="row justify-content-center align-items-start bg-weather p-2">
           <div className="col-md-6">
-            <h2 className="h2 text-danger">Add Task</h2>
+            <h2 className="h2 text-danger">Edite Task</h2>
             <form className="form" onSubmit={formik.handleSubmit}>
               {/* name */}
               <div>
@@ -102,11 +91,11 @@ const AddTask = () => {
               {/* status */}
               <div>
                 <label htmlFor="status " className="form-label">
-                  Status:
+                  Description:
                 </label>
                 <input
-                  type="text "
-                  name="status"
+                  type="status "
+                  name="status "
                   id="status "
                   placeholder="Enter your status "
                   onChange={formik.handleChange}
@@ -128,7 +117,7 @@ const AddTask = () => {
                   onSubmit={formik.handleSubmit}
                   disabled={!formik.isValid || formik.isSubmitting}
                 >
-                  Add
+                  Edite
                 </button>
               </div>
             </form>
@@ -139,4 +128,4 @@ const AddTask = () => {
   );
 };
 
-export default AddTask;
+export default EditeTask;

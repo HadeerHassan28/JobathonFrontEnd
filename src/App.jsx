@@ -6,31 +6,37 @@ import Login from "./comopnents/Login/Login";
 import AddTask from "./comopnents/AddTask/AddTask";
 import NotFound from "./comopnents/NotFound/NotFound";
 import { Toaster } from "react-hot-toast";
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Layout />,
-    children: [
-      {
-        index: true,
-        element: <Home />,
-      },
-      {
-        path: "/login",
-        element: <Login />,
-      },
-      {
-        path: "/add",
-        element: <AddTask />,
-      },
-      {
-        path: "*",
-        element: <NotFound />,
-      },
-    ],
-  },
-]);
+import EditeTask from "./comopnents/EditeTask/EditeTask";
+
 function App() {
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Layout />,
+      children: [
+        {
+          index: true,
+          element: <Home />,
+        },
+        {
+          path: "/login",
+          element: <Login />,
+        },
+        {
+          path: "/add",
+          element: <AddTask />,
+        },
+        {
+          path: "/edite",
+          element: <EditeTask />,
+        },
+        {
+          path: "*",
+          element: <NotFound />,
+        },
+      ],
+    },
+  ]);
   return (
     <>
       <Toaster />
