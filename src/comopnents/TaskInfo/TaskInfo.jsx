@@ -9,13 +9,13 @@ export const TasksInfo = [
     id: 2,
     name: "Learn JavaScript",
     description: "This is a task for learning javascript",
-    stauts: "Finished",
+    stauts: "inProg",
   },
   {
     id: 3,
     name: "Learn JavaScript",
     description: "This is a task for learning javascript",
-    stauts: "Finished",
+    stauts: "Not Started",
   },
   {
     id: 4,

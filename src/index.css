@@ -8,8 +8,8 @@
     rgba(145, 158, 171, 0.14) 0px 4px 5px 0px,
     rgba(145, 158, 171, 0.12) 0px 1px 10px 0px;
   --font-family: "Encode Sans Expanded", sans-serif;
-  --rating-color: #ffc908;
-  --background: url("../src/assets/images/bg.jpeg");
+  --rating-color: #7a6312;
+  /* --background: url("../src/assets/images/bg.png"); */
 }
 :root {
   /* filter: brightness(0.7); */
@@ -23,6 +23,7 @@ body {
   background-position: center;
   position: relative;
   height: 100vh;
+  opacity: 0.7;
 }
 .brightness-filter {
   filter: brightness(1) !important;
@@ -44,18 +45,20 @@ body {
   z-index: 1;
 }
 
-.bg-main {
-  background: var(--light-color);
-}
 .text {
   color: var(--light-color);
 }
 .title {
   color: var(--text-color);
-  font-size: larger;
 }
 .description {
   color: var(--main-color);
+}
+.finished {
+  color: rgb(19, 94, 69);
+}
+.inProg {
+  color: #584a15;
 }
 .btn {
   border: 2px solid var(--light-color);
