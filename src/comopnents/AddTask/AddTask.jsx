@@ -5,10 +5,12 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
+import uuid from "react-uuid";
 const AddTask = () => {
   const [setError, setsetError] = useState(false);
   const navigate = useNavigate();
   const newTask = {
+    id: uuid(),
     name: "",
     description: "",
     status: "",

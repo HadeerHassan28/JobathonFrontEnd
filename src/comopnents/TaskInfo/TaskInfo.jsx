@@ -1,6 +1,3 @@
-import React from "react";
-import styles from "./TaskInfo.module.css";
-
 export const TasksInfo = [
   {
     id: 1,
