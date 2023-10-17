@@ -29,7 +29,7 @@ const EditeTask = () => {
       status: Yup.string().min(3, "The status").required("Status is Required!"),
     }),
     onSubmit: async () => {
-      toast.success("Successfully created!", { duration: "2000" });
+      toast.success("Successfully Edited!", { duration: "2000" });
       navigate("/");
     },
   });
