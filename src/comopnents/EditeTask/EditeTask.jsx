@@ -29,6 +29,7 @@ const EditeTask = () => {
       status: Yup.string().min(3, "The status").required("Status is Required!"),
     }),
     onSubmit: async () => {
+      //search by id and compare it with the id in the array to find the element using find method of the array and get the id using useParams
       toast.success("Successfully Edited!", { duration: "2000" });
       navigate("/");
     },
