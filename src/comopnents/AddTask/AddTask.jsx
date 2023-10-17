@@ -8,15 +8,9 @@ import toast from "react-hot-toast";
 import uuid from "react-uuid";
 import { TasksInfo } from "../TaskInfo/TaskInfo";
 const AddTask = () => {
-  const newT = {
-    id: uuid(),
-    name: "",
-    description: "",
-    status: "",
-  };
   const [setError, setsetError] = useState(false);
   const [items, setItems] = useState(TasksInfo);
-  const [newTask, setNewTask] = useState(newT);
+
   const navigate = useNavigate();
 
   const formik = useFormik({
@@ -33,16 +27,18 @@ const AddTask = () => {
         .min(6, "Description must be at least 6 characters")
         .required("Description is Required!"),
       status: Yup.string()
-        .min(6, "Description must be at least 6 characters")
+        .min(6, "The Status")
         .required("Description is Required!"),
     }),
     onSubmit: async (values) => {
-      newTask.name = values.name;
-      newTask.description = values.description;
-      newTask.status = values.status;
-
-      setItems([...items, newTask]);
-      setNewTask("");
+      const newT = {
+        id: uuid(),
+        name: values.name,
+        description: values.description,
+        status: values.status,
+      };
+      setItems([...items, newT]);
+      console.log(items);
       toast.success("Successfully created!", { duration: "2000" });
       navigate("/");
     },
@@ -70,9 +66,7 @@ const AddTask = () => {
                   className="form-control mb-3"
                 ></input>
                 {formik.touched.name && formik.errors.name && (
-                  <div className="alert alert-danger">
-                    {formik.errors.email}
-                  </div>
+                  <div className="alert alert-danger">{formik.errors.name}</div>
                 )}
               </div>
               {/* description */}

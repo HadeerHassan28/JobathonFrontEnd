@@ -6,10 +6,16 @@ import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
 
 const LogIn = () => {
+  let newUser = {
+    email: "",
+    password: "",
+  };
   const navigete = useNavigate();
   const [setError, setsetError] = useState(false);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+
+  const [user, setuser] = useState(newUser);
+  const [users, setusers] = useState([]);
+
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -24,8 +30,9 @@ const LogIn = () => {
         .required("Password is Required!"),
     }),
     onSubmit: async (values) => {
-      setEmail(values.email);
-      setPassword(values.password);
+      setuser(values.email, values.password);
+      setusers(...user);
+      setuser(newUser);
       navigete("/");
     },
   });

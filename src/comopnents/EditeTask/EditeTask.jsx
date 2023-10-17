@@ -29,9 +29,6 @@ const EditeTask = () => {
       status: Yup.string().min(3, "The status").required("Status is Required!"),
     }),
     onSubmit: async () => {
-      const updatedTasks = TasksInfo.map((t) =>
-        t.id === updatedTask.id ? updatedTask : t
-      );
       toast.success("Successfully created!", { duration: "2000" });
       navigate("/");
     },
@@ -59,9 +56,7 @@ const EditeTask = () => {
                   className="form-control mb-3"
                 ></input>
                 {formik.touched.name && formik.errors.name && (
-                  <div className="alert alert-danger">
-                    {formik.errors.email}
-                  </div>
+                  <div className="alert alert-danger">{formik.errors.name}</div>
                 )}
               </div>
               {/* description */}
@@ -105,7 +100,7 @@ const EditeTask = () => {
                 ></input>
                 {formik.touched.status && formik.errors.status && (
                   <div className="alert alert-danger">
-                    {formik.errors.description}
+                    {formik.errors.status}
                   </div>
                 )}
                 {setError && (
